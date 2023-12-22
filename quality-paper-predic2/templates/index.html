@@ -1,0 +1,68 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quality Prediction</title>
+    <!-- Tambahkan link ke Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container mt-4">
+    <div class="jumbotron">
+        <h1 class="display-4">Paper Quality Prediction</h1>
+        <p class="lead">Input parameter berikut.</p>
+        <hr class="my-4">
+        <form action="/predict" method="post">
+            <div class="form-group">
+                <label for="roughness">Roughness:</label>
+                <input type="text" pattern="\d+(\.\d*)?" class="form-control" id="roughness" name="roughness" required>
+                <small class="form-text text-muted">Enter a number (integer or decimal).</small>
+            </div>
+            <div class="form-group">
+                <label for="brightness">Brightness:</label>
+                <input type="text" pattern="\d+(\.\d*)?" class="form-control" id="brightness" name="brightness" required>
+                <small class="form-text text-muted">Enter a number (integer or decimal).</small>
+            </div>
+            <div class="form-group">
+                <label for="thickness">Thickness:</label>
+                <input type="text" pattern="\d+(\.\d*)?" class="form-control" id="thickness" name="thickness" required>
+                <small class="form-text text-muted">Enter a number (integer or decimal).</small>
+            </div>
+            <div class="form-group">
+                <label for="curling">Curling:</label>
+                <input type="text" pattern="\d+(\.\d*)?" class="form-control" id="curling" name="curling" required>
+                <small class="form-text text-muted">Enter a number (integer or decimal).</small>
+            </div>
+            <div class="form-group">
+                <label for="dirt">Dirt:</label>
+                <input type="text" pattern="\d+(\.\d*)?" class="form-control" id="dirt" name="dirt" required>
+                <small class="form-text text-muted">Enter a number (integer or decimal).</small>
+            </div>
+            <div class="form-group">
+                <label for="clip">Clip:</label>
+                <input type="text" pattern="\d+(\.\d*)?" class="form-control" id="clip" name="clip" required>
+                <small class="form-text text-muted">Enter a number (integer or decimal).</small>
+            </div>
+            <div class="form-group">
+                <label for="wave">Wave:</label>
+                <input type="text" pattern="\d+(\.\d*)?" class="form-control" id="wave" name="wave" required>
+                <small class="form-text text-muted">Enter a number (integer or decimal).</small>
+            </div>
+            <button type="submit" class="btn btn-primary">Prediksi</button>
+        </form>
+        <hr class="my-4">
+
+        {% if current_user.is_authenticated %}
+            <form action="/logout" method="get">  <!-- Ganti metode menjadi GET -->
+                <button type="submit" class="btn btn-danger">Logout</button>
+            </form>
+        {% endif %}
+
+    </div>
+    <!-- Tambahkan script untuk Bootstrap JS dan jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
