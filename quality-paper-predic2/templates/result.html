@@ -1,0 +1,29 @@
+<!-- templates/result.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quality Prediction Result</title>
+    <!-- Tambahkan link ke Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container mt-4">
+    <div class="jumbotron">
+        <h1 class="display-4">Quality Prediction Result</h1>
+        <hr class="my-4">
+        {% if predicted_quality %}
+            <div class="mt-4 alert alert-success" role="alert">
+                <p class="mb-0">Predicted Quality: {{ predicted_quality }}</p>
+            </div>
+        {% endif %}
+        <div class="mt-4">
+            <a class="btn btn-primary" href="/">Back to Home</a>
+        </div>
+    </div>
+    <!-- Tambahkan script untuk Bootstrap JS dan jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

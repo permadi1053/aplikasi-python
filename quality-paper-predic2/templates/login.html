@@ -1,0 +1,48 @@
+<!-- templates/login.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <!-- Tambahkan link ke Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container mt-4">
+    <div class="jumbotron">
+        <h1 class="display-4">Login</h1>
+        <p class="lead">Enter your credentials below.</p>
+        <hr class="my-4">
+
+        <!-- Tambahkan pesan selamat datang -->
+        <div class="alert alert-info" role="alert">
+            <p>Selamat datang!<p>
+            <p>Model machine learning ini menggunakan Python dan dibuat untuk memprediksi grade kertas berdasarkan data properties yang diberikan. Data yang dihasilkan tidak mewakili kondisi aktual. Model ini merupakan contoh dan untuk sarana pembelajaran.</p>
+        </div>
+
+        <form method="post" action="{{ url_for('authenticate') }}">
+            <div class="form-group">
+                <label for="username">Name:</label>
+                <input type="text" id="username" name="username" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="institution">Institution:</label>
+                <input type="text" id="institution" name="institution" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Login" class="btn btn-primary">
+            </div>
+        </form>
+        <hr class="my-4">
+
+        {% if current_user.is_authenticated %}
+            <p class="lead">You are already logged in as {{ current_user.username }}.</p>
+        {% endif %}
+    </div>
+
+    <!-- Tambahkan script untuk Bootstrap JS dan jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
